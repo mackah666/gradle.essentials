@@ -1,0 +1,7 @@
+task sayHello << {
+	println "Hello from multi-project build"
+}
+
+allprojects {
+	task ("describe${project.name.capitalize()}") << {println project.name}
+}

@@ -1,0 +1,21 @@
+buildscript {
+  repositories { mavenCentral() }
+  dependencies { classpath 'org.ajoberstar:gradle-git:0.2.3' }
+}
+
+plugins {
+  id "org.ajoberstar.grgit" version "3.0.0-rc.3"
+}
+
+import org.ajoberstar.grgit.*
+
+task clone << {
+  Grgit.clone(dir: file('build/dangerMouse'), uri: 'git@github.com:bbc/cbbc-dangermouse-ultimate-app.git', refToCheckout: 'develop')
+}
+
+
+
+
+
+
+
