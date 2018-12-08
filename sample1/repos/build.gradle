@@ -26,6 +26,10 @@ task startScript() {
   }
 }
 
+task yo {
+    println "yo"
+}
+
 task hello {
     group 'Welcome'
     description 'Produces a greeting'
