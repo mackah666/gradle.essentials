@@ -1,0 +1,36 @@
+buildscript {
+  repositories { mavenCentral() }
+  dependencies { classpath 'org.ajoberstar:gradle-git:0.2.3' }
+}
+
+plugins {
+  id "org.ajoberstar.grgit" version "3.0.0-rc.3"
+}
+
+import org.ajoberstar.grgit.*
+
+task cloneGoExplore << {
+  Grgit.clone(dir: file('build/goexplore'), uri: 'git@github.com:bbc/cbeebies-go-explore-app.git',refToCheckout: branchName)
+}
+
+
+task myPrebuildTask(type: Exec) {
+    commandLine 'sh', 'ls -al'
+}
+
+task startScript() {
+  doLast {
+     exec {
+          executable "cp -rf build copiedBuild"
+      }
+  }
+}
+
+task hello {
+    group 'Welcome'
+    description 'Produces a greeting'
+
+    doLast {
+        println 'Hello, World'
+    }
+}
