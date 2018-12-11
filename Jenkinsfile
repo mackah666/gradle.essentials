@@ -11,5 +11,35 @@ pipeline {
         echo 'Clean Previous Android Builds'
       }
     }
+    stage('Update Build Display') {
+      steps {
+        echo 'Update Build Display'
+      }
+    }
+    stage('Update Checkout Specific Tag for Picknmix android') {
+      steps {
+        echo 'Update Checkout Specific Tag for Picknmix android'
+      }
+    }
+    stage('Npm Install-Android') {
+      steps {
+        echo 'Npm Install-Android'
+      }
+    }
+    stage('Npm Audit') {
+      steps {
+        echo 'Npm Audit'
+      }
+    }
+    stage('GMI Android Library Tests') {
+      steps {
+        echo 'GMI Android Library Tests'
+      }
+    }
+    stage('Framework Android Unit Tests') {
+      steps {
+        echo 'Framework Android Unit Tests'
+      }
+    }
   }
 }
