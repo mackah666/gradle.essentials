@@ -2,13 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Pre Clean') {
-      steps {
-        echo 'Pre Cleaning'
-      }
-    }
-    stage('Clean Previous Android Builds') {
-      steps {
-        echo 'Clean Previous Android Builds'
+      parallel {
+        stage('Pre Clean') {
+          steps {
+            echo 'Pre Cleaning'
+          }
+        }
+        stage('Clean Previous Android Builds') {
+          steps {
+            echo 'Clean Previous Android Builds'
+          }
+        }
       }
     }
     stage('Update Build Display') {
@@ -44,6 +48,11 @@ pipeline {
     stage('Copy bundled game') {
       steps {
         echo 'Copy bundled game'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        input 'You wanna deploy'
       }
     }
   }
