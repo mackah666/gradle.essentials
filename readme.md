@@ -1,5 +1,5 @@
 # Gradle Essentials 
-
+#jgjdsgkjgKJ
 This projects explains and demostrates how to Gradle MultiProjects Build.
 It covers the directory layout
 
