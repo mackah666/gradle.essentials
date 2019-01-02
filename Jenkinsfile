@@ -2,20 +2,8 @@ pipeline {
   agent any
   stages {
     stage('Pre Clean') {
-      parallel {
-        stage('Pre Clean') {
-          steps {
-            echo 'Pre Cleaning'
-          }
-        }
-        stage('Force Failure ') {
-          steps {
-            catchError() {
-              error 'Failed'
-            }
-
-          }
-        }
+      steps {
+        echo 'Pre Cleaning'
       }
     }
     stage('Clean Previous Android Builds') {
