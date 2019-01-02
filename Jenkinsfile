@@ -10,7 +10,10 @@ pipeline {
         }
         stage('Force Failure ') {
           steps {
-            catchError()
+            catchError() {
+              error 'Failed'
+            }
+
           }
         }
       }
