@@ -21,18 +21,8 @@ pipeline {
       }
     }
     stage('Update Build Display') {
-      parallel {
-        stage('Update Build Display') {
-          steps {
-            echo 'Update Build Display'
-          }
-        }
-        stage('Force Failure') {
-          steps {
-            catchError()
-            error 'Failed'
-          }
-        }
+      steps {
+        echo 'Update Build Display'
       }
     }
     stage('Update Checkout Specific Tag for Picknmix android') {
