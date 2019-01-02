@@ -13,6 +13,11 @@ pipeline {
             echo 'Clean Previous Android Builds'
           }
         }
+        stage('Third Task') {
+          steps {
+            echo 'Hello'
+          }
+        }
       }
     }
     stage('Update Build Display') {
