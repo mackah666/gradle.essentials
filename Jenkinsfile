@@ -57,7 +57,7 @@ pipeline {
     }
     stage('Trigger') {
       steps {
-        build(job: 'DeploymentTest', propagate: true)
+        build 'DeploymentTest'
       }
     }
   }
