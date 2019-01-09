@@ -57,7 +57,9 @@ pipeline {
     }
     stage('Initialise') {
       steps {
-        build(job: 'DeploymentTest/Develop', wait: false)
+        paramAValue = "paramAValue"
+        paramBValue = "paramBValue"
+        build(job: 'DeploymentTest/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: paramAValue], [$class: 'StringParameterValue', name: 'ParamB', value: paramBValue]], wait: false)
       }
     }
   }
