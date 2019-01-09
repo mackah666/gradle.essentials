@@ -55,5 +55,10 @@ pipeline {
         echo 'Copy bundled game'
       }
     }
+    stage('Initialise') {
+      steps {
+        build 'DeploymenTest/Develop'
+      }
+    }
   }
 }
