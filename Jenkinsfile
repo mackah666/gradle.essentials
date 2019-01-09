@@ -55,9 +55,9 @@ pipeline {
         echo 'Copy bundled game'
       }
     }
-    stage('Deploy') {
+    stage('Trigger') {
       steps {
-        input 'You wanna deploy'
+        build(job: 'DeploymentTest', propagate: true)
       }
     }
   }
