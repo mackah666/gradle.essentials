@@ -55,10 +55,5 @@ pipeline {
         echo 'Copy bundled game'
       }
     }
-    stage('Trigger') {
-      steps {
-        build 'DeploymentTest'
-      }
-    }
   }
 }
