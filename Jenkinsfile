@@ -57,7 +57,7 @@ pipeline {
     }
     stage('Initialise') {
       steps {
-        build 'DeploymentTest/Develop'
+        build(job: 'DeploymentTest/Develop', wait: false)
       }
     }
   }
