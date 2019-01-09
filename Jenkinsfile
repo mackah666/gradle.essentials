@@ -57,7 +57,8 @@ pipeline {
     }
     stage('Initialise') {
       steps {
-        build(job: 'DeploymentTest/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: "mackah666"], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
+        def artifact = "example-repo-local/gradle-android-example/library/1.2-SNAPSHOT/library-1.2-SNAPSHOT.aar"
+        build(job: 'DeploymentTest/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: artifact], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
       }
     }
   }
