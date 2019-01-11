@@ -59,7 +59,7 @@ pipeline {
       steps {
         script {
           def artifact = "example-repo-local/gradle-android-example/library/1.2-SNAPSHOT/library-1.2-SNAPSHOT.aar"
-          build(job: 'DeploymentTest/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: artifact], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
+          build(job: 'Deployment/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: artifact], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
         }
       }
     }
