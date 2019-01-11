@@ -58,8 +58,12 @@ pipeline {
     stage('Initialise') {
       steps {
         script {
-          def artifact = "getCreative/release/1.2.7/ios/1.2.7-origin-release.1+9/getCreative-Production-1.2.7-RC3.ipa"
-          build(job: 'Deployment/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: artifact], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
+          def artifact = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3.ipa"
+          def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
+          def app = "dumpingGround-Enterprise-1.3-RC3"
+          build(job: 'Deployment/Develop', parameters: [[$class: 'StringParameterValue', name: 'artifact', value: artifact], 
+                                                        [$class: 'StringParameterValue', name: 'dSYMs', value: dSYMs], 
+                                                        [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
         }
       }
     }
