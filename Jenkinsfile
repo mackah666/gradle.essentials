@@ -58,7 +58,7 @@ pipeline {
     stage('Initialise') {
       steps {
         script {
-          def artifact = "example-repo-local/gradle-android-example/library/1.2-SNAPSHOT/library-1.2-SNAPSHOT.aar"
+          def artifact = "getCreative/release/1.2.7/ios/1.2.7-origin-release.1+9/getCreative-Production-1.2.7-RC3.ipa"
           build(job: 'Deployment/Develop', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: artifact], [$class: 'StringParameterValue', name: 'ParamB', value: "paramBValue"]], wait: false)
         }
       }
