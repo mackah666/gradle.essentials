@@ -66,7 +66,7 @@ pipeline {
       }
     }
     stage('Initialise') {
-      steps {
+      //steps {
         script {
           def artifact = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3.ipa"
           def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
@@ -77,7 +77,7 @@ pipeline {
         }
       }
     }
-  }
+  //}
 }
 
 
