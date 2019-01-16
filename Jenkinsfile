@@ -20,6 +20,16 @@ pipeline {
         }
       }
     }
+    
+    stage('Change Log'){
+      steps {
+        script {
+         def changeLog = getChangeLog()
+         echo changeLog
+        }
+      }
+    }
+    
     stage('Update Build Display') {
       steps {
         echo 'Update Build Display'
