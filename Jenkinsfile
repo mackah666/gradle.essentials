@@ -69,3 +69,31 @@ pipeline {
     }
   }
 }
+
+
+@NonCPS
+def getChangeLog() {
+    def changeLogSets = currentBuild.changeSets
+
+    def changeLog = ""
+    for (int i = 0; i < changeLogSets.size(); i++) {
+        def entries = changeLogSets[i].items
+        for (int j = 0; j < entries.length; j++) {
+            def entry = entries[j]
+            changeLog += "${entry.author}: ${entry.msg}"
+            def files = new ArrayList(entry.affectedFiles)
+            for (int k = 0; k < files.size(); k++) {
+                def file = files[k]
+                changeLog += "\n"
+                changeLog += "\t${file.editType.name} ${file.path}"
+            }
+            changeLog += "\n"
+        }
+    }
+    changeLog = changeLog.trim()
+    if (!changeLog) {
+        changeLog = "No change log"
+    }
+    changeLog = java.net.URLEncoder.encode(changeLog, "UTF-8")
+    return changeLog
+}
