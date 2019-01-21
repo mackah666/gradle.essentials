@@ -1,6 +1,9 @@
 # Gradle Essentials 
 #jgjdsgkjgKJ
 # Added some comments to the readme file
+
+# This is a test in order to understand the effect of PR to develop
+
 This projects explains and demostrates how to Gradle MultiProjects Build.
 It covers the directory layout
 
