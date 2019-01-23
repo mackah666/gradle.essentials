@@ -1,5 +1,4 @@
-/* impofrt shared library */
-@Library('groovy-slack')_
+@Library('groovy-slack') _
 pipeline {
   agent any
   stages {
@@ -80,13 +79,6 @@ pipeline {
       }
     }
   }
-   post {
-        always {
-	    /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
-            slackNotifier(currentBuild.currentResult)
-            cleanWs()
-        }
-    }
 }
 
 
