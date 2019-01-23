@@ -1,3 +1,4 @@
+@Library('groovy-slack') _
 pipeline {
   agent any
   stages {
@@ -71,13 +72,21 @@ pipeline {
           def artifact = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3.ipa"
           def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
           def app = "dumpingGround-Enterprise-1.3-RC3"
-          build(job: 'Deployment/Develop', parameters: [[$class: 'StringParameterValue', name: 'artifact', value: artifact], 
+          build(job: 'deployment/develop', parameters: [[$class: 'StringParameterValue', name: 'artifact', value: artifact], 
                                                         [$class: 'StringParameterValue', name: 'dSYMs', value: dSYMs], 
                                                         [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
         }
       }
     }
   }
+   post {
+        always {
+          script{
+	        /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
+            slackNotifier(currentBuild.currentResult, getChangeLog())
+          }
+        }
+    }
 }
 
 
