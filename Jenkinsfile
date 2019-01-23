@@ -1,5 +1,5 @@
 /* impofrt shared library */
-@Library('groovy-slack') _
+@Library('groovy-slack')_
 pipeline {
   agent any
   stages {
