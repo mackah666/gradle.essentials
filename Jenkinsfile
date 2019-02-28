@@ -69,11 +69,11 @@ pipeline {
     stage('Initialise') {
       steps {
         script {
-          def artifact = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3.ipa"
-          def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
-          def app = "dumpingGround-Enterprise-1.3-RC3"
+          def artifact = "picknmixDemoApp/release/v2.18.1/ios/2.18.1-origin-release.1+39/PicknMix-Enterprise-2.18.1.ipa"
+          //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
+          def app = "PicknMix-Enterprise-2.18.1"
           build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'artifact', value: artifact], 
-                                                        [$class: 'StringParameterValue', name: 'dSYMs', value: dSYMs], 
+                                                    
                                                         [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
         }
       }
