@@ -63,7 +63,7 @@ pipeline {
     }
     stage('Copy bundled game') {
       steps {
-        echo 'Copy bundled game'
+        echo 'Copy bundled game content'
       }
     }
     stage('Initialise') {
