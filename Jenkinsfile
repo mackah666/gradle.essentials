@@ -12,6 +12,7 @@ pipeline {
 
     stage("Print PR") {
        	steps {
+          // This printed null, I have set the Github PR builder
           echo "${env.CHANGED_ID}"
       	}
     }
