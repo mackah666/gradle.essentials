@@ -13,13 +13,11 @@ pipeline {
 
    stage("Check for pull request") {
         steps {
+          script{
              if (env.CHANGE_ID) {
                     echo "This has been triggered by a pull request"
              }
-	     else {
-	            echo "This has been triggered by a checkin"
-	     }	
-	    
+          }  
         }
     }
 
