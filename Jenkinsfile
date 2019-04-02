@@ -10,6 +10,12 @@ pipeline {
       	}
     }
 
+    stage("Print PR") {
+       	steps {
+          echo "${env.CHANGED_ID}"
+      	}
+    }
+
 
     stage('Pre Clean') {
       parallel {
