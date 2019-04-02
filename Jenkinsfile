@@ -9,6 +9,20 @@ pipeline {
                 //print params
       	}
     }
+
+
+   stage("Check for pull request") {
+        steps {
+             if (env.CHANGE_ID) {
+                    echo "This has been triggered by a pull request"
+             }
+	     else {
+	            echo "This has been triggered by a checkin"
+	     }	
+	    
+        }
+    }
+
     stage('Pre Clean') {
       parallel {
         stage('Pre Clean') {
