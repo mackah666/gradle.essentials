@@ -2,6 +2,13 @@
 pipeline {
   agent any
   stages {
+    stage("Print Environment") {
+       	steps {
+        	sh "pwd"
+                sh "printenv"
+                //print params
+      	}
+    }
     stage('Pre Clean') {
       parallel {
         stage('Pre Clean') {
