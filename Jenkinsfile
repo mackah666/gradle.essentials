@@ -11,16 +11,6 @@ pipeline {
     }
 
 
-  //  stage("Check for pull request") {
-  //       steps {
-  //         script{
-  //            if (env.CHANGE_ID) {
-  //                   echo "This has been triggered by a pull request"
-  //            }
-  //         }  
-  //       }
-  //   }
-
     stage('Pre Clean') {
       parallel {
         stage('Pre Clean') {
