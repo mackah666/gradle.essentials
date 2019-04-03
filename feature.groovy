@@ -1,8 +1,15 @@
-//@Library('groovy-slack') _
-// added comment
+@Library('groovy-slack') _
 pipeline {
   agent any
   stages {
+
+    stage("Feature Branch") {
+        steps {
+                sh "pwd"
+                sh "printenv"
+                //print params
+        }
+    }
     stage("Print Environment") {
        	steps {
         	sh "pwd"
@@ -14,16 +21,7 @@ pipeline {
     stage("Print PR") {
        	steps {
           // This printed null, I have set the Github PR builder
-          script{
-            if(env.CHANGED_ID)
-            {
-              echo "PR exits"
-            }
-            else{
-              echo "No PR Exists"
-            }
-          }
-          //echo "${env.CHANGED_ID}"git 
+          echo "${env.CHANGED_ID}"
       	}
     }
 
@@ -92,20 +90,20 @@ pipeline {
         echo 'Copy bundled game content'
       }
     }
-    // stage('Initialise') {
-    //   steps {
-    //     script {
-    //       def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
-	  // def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
-    //       //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
-    //       def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
-    //       build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
-		// 					[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
+    stage('Initialise') {
+      steps {
+        script {
+          def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
+	  def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
+          //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
+          def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
+          build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
+							[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
                                                     
-    //                                                     [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
-    //     }
-    //   }
-    // }
+                                                        [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
+        }
+      }
+    }
   }
    //post {
    //     always {
@@ -144,4 +142,3 @@ def getChangeLog() {
     changeLog = java.net.URLEncoder.encode(changeLog, "UTF-8")
     return changeLog
 }
-
