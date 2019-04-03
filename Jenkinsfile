@@ -36,9 +36,11 @@ pipeline {
     stage("Print PR") {
        	steps {
           // This printed null, I have set the Github PR builder
-          if(env.CHANGED_ID)
-          {
-            echo "PR exits"
+          script{
+            if(env.CHANGED_ID)
+            {
+              echo "PR exits"
+            }
           }
           //echo "${env.CHANGED_ID}"
       	}
