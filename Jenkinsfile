@@ -23,7 +23,7 @@ pipeline {
               echo "No PR Exists"
             }
           }
-          //echo "${env.CHANGED_ID}"
+          //echo "${env.CHANGED_ID}"git 
       	}
     }
 
@@ -92,20 +92,20 @@ pipeline {
         echo 'Copy bundled game content'
       }
     }
-    stage('Initialise') {
-      steps {
-        script {
-          def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
-	  def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
-          //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
-          def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
-          build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
-							[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
+    // stage('Initialise') {
+    //   steps {
+    //     script {
+    //       def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
+	  // def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
+    //       //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
+    //       def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
+    //       build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
+		// 					[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
                                                     
-                                                        [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
-        }
-      }
-    }
+    //                                                     [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
+    //     }
+    //   }
+    // }
   }
    //post {
    //     always {
