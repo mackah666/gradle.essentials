@@ -1,30 +1,8 @@
-@Library('groovy-slack') _
+//@Library('groovy-slack') _
 // added comment
 pipeline {
   agent any
   stages {
-  //   triggers {
-  //     GenericTrigger(
-  //     genericVariables: [
-  //       [key: 'ref', value: '$.ref'],
-  //       [key: 'repository', regexpFilter: '[^a-z_-]', value: '$.repository']
-  //     ],
-  //     causeString: 'Triggered on $ref',
-  //     regexpFilterExpression: 'generic $ref',
-  //     regexpFilterText: '$repository refs/heads/' + BRANCH_NAME,
-  //     printContributedVariables: true,
-  //     printPostContent: true
-  //     )
-  // }
-    // stage('Test Generic Trigger') {
-    //   steps {
-    //     sh """
-    //       echo Variables from shell:
-    //       echo reference ${ref}
-    //       echo repository ${repository}
-    //     """
-    //   }
-    // }
     stage("Print Environment") {
        	steps {
         	sh "pwd"
@@ -41,8 +19,11 @@ pipeline {
             {
               echo "PR exits"
             }
+            else{
+              echo "No PR Exists"
+            }
           }
-          //echo "${env.CHANGED_ID}"
+          //echo "${env.CHANGED_ID}"git 
       	}
     }
 
@@ -111,20 +92,20 @@ pipeline {
         echo 'Copy bundled game content'
       }
     }
-    stage('Initialise') {
-      steps {
-        script {
-          def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
-	  def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
-          //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
-          def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
-          build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
-							[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
+    // stage('Initialise') {
+    //   steps {
+    //     script {
+    //       def normal = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-normal-debug.apk"
+	  // def freetime  = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/picknmix-freetime-debug.apk"
+    //       //def dSYMs = "dumpingGround/release/1.5.1/ios/1.5.1-origin-release.1+0/dumpingGround-Enterprise-1.3-RC3-dSYMs.zip"
+    //       def app = "picknmixDemoApp/develop/android/2.18.4-origin-develop.1+319/"
+    //       build(job: 'Deployment', parameters: [[$class: 'StringParameterValue', name: 'normal', value: normal],
+		// 					[$class: 'StringParameterValue', name: 'freetime', value: freetime], 
                                                     
-                                                        [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
-        }
-      }
-    }
+    //                                                     [$class: 'StringParameterValue', name: 'app', value: app]], wait: false)
+    //     }
+    //   }
+    // }
   }
    //post {
    //     always {
@@ -163,30 +144,4 @@ def getChangeLog() {
     changeLog = java.net.URLEncoder.encode(changeLog, "UTF-8")
     return changeLog
 }
-// pipeline {
-//   agent any
-//   triggers {
-//     GenericTrigger(
-//      genericVariables: [
-//       [key: 'ref', value: '$.ref'],
-//       [key: 'repository', regexpFilter: '[^a-z_-]', value: '$.repository']
-//      ],
-//      causeString: 'Triggered on $ref',
-//      regexpFilterExpression: 'generic $ref',
-//      regexpFilterText: '$repository refs/heads/' + BRANCH_NAME,
-//      printContributedVariables: true,
-//      printPostContent: true
-//     )
-//   }
-//   stages {
-//     stage('Test Generic Trigger') {
-//       steps {
-//         sh """
-//           echo Variables from shell:
-//           echo reference ${ref}
-//           echo repository ${repository}
-//         """
-//       }
-//     }
-//   }
-// }
+
