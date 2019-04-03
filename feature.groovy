@@ -1,30 +1,15 @@
 @Library('groovy-slack') _
-// added comment
 pipeline {
   agent any
   stages {
-  //   triggers {
-  //     GenericTrigger(
-  //     genericVariables: [
-  //       [key: 'ref', value: '$.ref'],
-  //       [key: 'repository', regexpFilter: '[^a-z_-]', value: '$.repository']
-  //     ],
-  //     causeString: 'Triggered on $ref',
-  //     regexpFilterExpression: 'generic $ref',
-  //     regexpFilterText: '$repository refs/heads/' + BRANCH_NAME,
-  //     printContributedVariables: true,
-  //     printPostContent: true
-  //     )
-  // }
-    // stage('Test Generic Trigger') {
-    //   steps {
-    //     sh """
-    //       echo Variables from shell:
-    //       echo reference ${ref}
-    //       echo repository ${repository}
-    //     """
-    //   }
-    // }
+
+    stage("Feature Branch") {
+        steps {
+                sh "pwd"
+                sh "printenv"
+                //print params
+        }
+    }
     stage("Print Environment") {
        	steps {
         	sh "pwd"
@@ -36,13 +21,7 @@ pipeline {
     stage("Print PR") {
        	steps {
           // This printed null, I have set the Github PR builder
-          script{
-            if(env.CHANGED_ID)
-            {
-              echo "PR exits"
-            }
-          }
-          //echo "${env.CHANGED_ID}"
+          echo "${env.CHANGED_ID}"
       	}
     }
 
@@ -163,30 +142,3 @@ def getChangeLog() {
     changeLog = java.net.URLEncoder.encode(changeLog, "UTF-8")
     return changeLog
 }
-// pipeline {
-//   agent any
-//   triggers {
-//     GenericTrigger(
-//      genericVariables: [
-//       [key: 'ref', value: '$.ref'],
-//       [key: 'repository', regexpFilter: '[^a-z_-]', value: '$.repository']
-//      ],
-//      causeString: 'Triggered on $ref',
-//      regexpFilterExpression: 'generic $ref',
-//      regexpFilterText: '$repository refs/heads/' + BRANCH_NAME,
-//      printContributedVariables: true,
-//      printPostContent: true
-//     )
-//   }
-//   stages {
-//     stage('Test Generic Trigger') {
-//       steps {
-//         sh """
-//           echo Variables from shell:
-//           echo reference ${ref}
-//           echo repository ${repository}
-//         """
-//       }
-//     }
-//   }
-// }
