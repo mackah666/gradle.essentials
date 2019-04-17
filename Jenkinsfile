@@ -94,7 +94,7 @@ pipeline {
     }
     stage('GMI iOS Library Tests') {
                steps {
-                       sh 'fastlane pilot'
+                    fastlane pilot -v
                }
             }
 
