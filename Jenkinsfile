@@ -92,6 +92,12 @@ pipeline {
         echo 'Copy bundled game content'
       }
     }
+    stage('GMI iOS Library Tests') {
+               steps {
+                       sh 'fastlane pilot'
+               }
+            }
+
     stage('Initialise') {
       steps {
          script {
