@@ -1,62 +1,16 @@
-//@Library('groovy-slack') _
-// added comment
 pipeline {
   agent any
   stages {
-    stage("Print Environment") {
-       	steps {
-        	sh "pwd"
-                sh "printenv"
-                //print params
-      	}
-    }
-
-    stage("Print PR") {
-       	steps {
-          // This printed null, I have set the Github PR builder
-          script{
-            if(env.CHANGED_ID)
-            {
-              echo "PR exits"
-            }
-            else{
-              echo "No PR Exists"
-            }
-          }
-          //echo "${env.CHANGED_ID}"git 
-      	}
-    }
-
-
     stage('Pre Clean') {
-      parallel {
-        stage('Pre Clean') {
-          steps {
-            echo 'Pre Cleaning'
-          }
-        }
-        stage('Clean Previous Android Builds') {
-          steps {
-            echo 'Clean Previous Android Builds'
-          }
-        }
-        stage('Third Task') {
-          steps {
-            echo 'Hello'
-          }
-        }
-      }
-    }
-    
-    stage('Change Log'){
       steps {
-        script {
-         def changeLog = getChangeLog()
-         println changeLog
-        }
+        echo 'Pre Cleaning'
       }
     }
-    
+    stage('Clean Previous Android Builds') {
+      steps {
+        echo 'Clean Previous Android Builds'
+      }
+    }
     stage('Update Build Display') {
       steps {
         echo 'Update Build Display'
@@ -87,47 +41,5 @@ pipeline {
         echo 'Framework Android Unit Tests'
       }
     }
-    stage('Copy bundled game') {
-      steps {
-        echo 'Copy bundled game content'
-      }
-    }
-   
   }
-  //  post {
-  //       always {
-  //         script{
-	//         /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
-  //           //slackNotifier(currentBuild.currentResult, getChangeLog())
-  //         }
-  //       }
-  //   }
 }
-
-
-def getChangeLog() {
-    def changeLogSets = currentBuild.changeSets
-
-    def changeLog = ""
-    for (int i = 0; i < changeLogSets.size(); i++) {
-        def entries = changeLogSets[i].items
-        for (int j = 0; j < entries.length; j++) {
-            def entry = entries[j]
-            changeLog += "${entry.author}: ${entry.msg}"
-            def files = new ArrayList(entry.affectedFiles)
-            for (int k = 0; k < files.size(); k++) {
-                def file = files[k]
-                changeLog += "\n"
-                changeLog += "\t${file.editType.name} ${file.path}"
-            }
-            changeLog += "\n"
-        }
-    }
-    changeLog = changeLog.trim()
-    if (!changeLog) {
-        changeLog = "No change log"
-    }
-    changeLog = java.net.URLEncoder.encode(changeLog, "UTF-8")
-    return changeLog
-}
-
