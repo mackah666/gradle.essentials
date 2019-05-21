@@ -27,7 +27,7 @@ pipeline {
       }
     }
     stage('Npm Audit') {
-      steps 
+      steps {
         echo 'Npm Audit'
       }
     }
