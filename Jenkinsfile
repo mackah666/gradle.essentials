@@ -6,11 +6,7 @@ pipeline {
         echo 'Pre Cleaning'
       }
     }
-    stage('Clean Previous Android Builds') {
-      steps {
-        echo 'Clean Previous Android Builds'
-      }
-    }
+   
     stage('Update Build Display') {
       steps {
         echo 'Update Build Display'
