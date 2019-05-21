@@ -52,7 +52,7 @@ pipeline {
       steps {
         script {
          def changeLog = getChangeLog()
-         echo changeLog
+         println changeLog
         }
       }
     }
@@ -123,7 +123,6 @@ pipeline {
 }
 
 
-@NonCPS
 def getChangeLog() {
     def changeLogSets = currentBuild.changeSets
 
