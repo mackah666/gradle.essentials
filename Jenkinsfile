@@ -6,15 +6,12 @@ pipeline {
         echo 'Pre Cleaning'
       }
     }
-<<<<<<< HEAD
    
-=======
     stage('Clean Previous Android Builds') {
       steps {
         echo 'Clean Previous Android Builds'
       }
     }
->>>>>>> master
     stage('Update Build Display') {
       steps {
         echo 'Update Build Display'
@@ -35,19 +32,18 @@ pipeline {
         echo 'Npm Audit'
       }
     }
-<<<<<<< HEAD
     // Changeset log working correctly
     stage('ChangeLog') {
       steps {
         script{
            echo 'Npm Audit'
-           def clogs = changeLogSets()
-           echo clogs
+          def changeLogSets = currentBuild.changeSets
+          println(changeLogSets)
+          // def clogs = changeLogSets()
+          // echo clogs
         }
       }         
     }
-=======
->>>>>>> master
     stage('GMI Android Library Tests') {
       steps {
         echo 'GMI Android Library Tests'
@@ -59,7 +55,6 @@ pipeline {
       }
     }
   }
-<<<<<<< HEAD
 }
 
 def changeLogSets() {
@@ -77,6 +72,4 @@ def changeLogSets() {
     }
 }
 }
-=======
 }
->>>>>>> master
