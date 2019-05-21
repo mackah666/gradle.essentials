@@ -1,9 +1,5 @@
 # Gradle Essentials 
-
-# Added some comments to the readme file
-
-# This is a test in order to understand the effect of PR to develop
-
+#jgjdsgkjgKJ
 This projects explains and demostrates how to Gradle MultiProjects Build.
 It covers the directory layout
 
@@ -80,10 +76,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Mackah666** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
-
-* **Michael Ackah** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
-
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
