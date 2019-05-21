@@ -1,5 +1,5 @@
 # Gradle Essentials 
-# Created Pull Request
+
 # Added some comments to the readme file
 
 # This is a test in order to understand the effect of PR to develop
