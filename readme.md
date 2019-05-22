@@ -11,6 +11,9 @@ It covers the directory layout, add some extra notes to the readme.md
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+This is the first commit to branch 1.0.1
+
+
 ### Useful commands
 
 What things you need to install the software and how to install them
