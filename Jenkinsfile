@@ -6,6 +6,7 @@ pipeline {
         echo 'Pre Cleaning'
       }
     }
+<<<<<<< HEAD
    
     stage('Oops stage') {
       	steps {
@@ -14,6 +15,8 @@ pipeline {
 
     }
     
+=======
+>>>>>>> 378056a8394d829cd9e8517fa765f0244abb94eb
     stage('Clean Previous Android Builds') {
       steps {
         echo 'Clean Previous Android Builds'
@@ -39,6 +42,7 @@ pipeline {
         echo 'Npm Audit'
       }
     }
+<<<<<<< HEAD
     // Changeset log working correctly
     stage('ChangeLog') {
       steps {
@@ -51,6 +55,8 @@ pipeline {
         }
       }         
     }
+=======
+>>>>>>> 378056a8394d829cd9e8517fa765f0244abb94eb
     stage('GMI Android Library Tests') {
       steps {
         echo 'GMI Android Library Tests'
@@ -62,6 +68,7 @@ pipeline {
       }
     }
   }
+<<<<<<< HEAD
 }
 
 def changeLogSets() {
@@ -80,3 +87,6 @@ def changeLogSets() {
 }
 }
 
+=======
+}
+>>>>>>> 378056a8394d829cd9e8517fa765f0244abb94eb
