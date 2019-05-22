@@ -85,8 +85,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Mackah666** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
 
-* **Michael Ackah** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
-
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
