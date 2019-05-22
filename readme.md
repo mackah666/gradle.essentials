@@ -3,9 +3,9 @@
 # Added some comments to the readme file
 
 # This is a test in order to understand the effect of PR to develop
-
+This is a test release commit message
 This projects explains and demostrates how to Gradle MultiProjects Build.
-It covers the directory layout
+It covers the directory layout, add some extra notes to the readme.md
 
 ## Getting Started
 
@@ -20,6 +20,8 @@ gradle projects
 
 gradle tasks --all
 
+This works, just need to extract the correct data
+
 ```
 
 ### Installing
@@ -31,6 +33,7 @@ Say what the step will be
 ```
 Give the example
 ```
+Give an other example please 
 
 And repeat
 
@@ -81,8 +84,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Mackah666** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
-
-* **Michael Ackah** - *Initial work* - [gradle.essentials](https://github.com/mackah666/gradle.essentials)
 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
