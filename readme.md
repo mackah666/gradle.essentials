@@ -3,7 +3,7 @@
 # Added some comments to the readme file
 
 # This is a test in order to understand the effect of PR to develop
-
+This is a test release commit message
 This projects explains and demostrates how to Gradle MultiProjects Build.
 It covers the directory layout, add some extra notes to the readme.md
 
