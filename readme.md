@@ -20,6 +20,8 @@ gradle projects
 
 gradle tasks --all
 
+This works, just need to extract the correct data
+
 ```
 
 ### Installing
@@ -31,6 +33,7 @@ Say what the step will be
 ```
 Give the example
 ```
+Give an other example please 
 
 And repeat
 
