@@ -14,6 +14,8 @@ These instructions will get you a copy of the project up and running on your loc
 This is the first commit to branch 1.0.1
 
 This is the second commit to release/1.0.1
+
+This is the third commit to release/1.0.1 
 ### Useful commands
 
 What things you need to install the software and how to install them
