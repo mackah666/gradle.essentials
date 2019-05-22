@@ -1,7 +1,7 @@
 # Gradle Essentials 
 This feature mackah666-1
 # Added some comments to the readme file
-
+Now added feature mackah666-2
 # This is a test in order to understand the effect of PR to develop
 
 This projects explains and demostrates how to Gradle MultiProjects Build.
