@@ -5,7 +5,7 @@
 # This is a test in order to understand the effect of PR to develop
 
 This projects explains and demostrates how to Gradle MultiProjects Build.
-It covers the directory layout
+It covers the directory layout, add some extra notes to the readme.md
 
 ## Getting Started
 
