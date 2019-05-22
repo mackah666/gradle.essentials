@@ -7,6 +7,13 @@ pipeline {
       }
     }
    
+    stage('Oops stage') {
+      	steps {
+		echo 'Oops all over this'
+	}
+
+    }
+    
     stage('Clean Previous Android Builds') {
       steps {
         echo 'Clean Previous Android Builds'
